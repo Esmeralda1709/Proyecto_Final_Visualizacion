@@ -146,22 +146,6 @@ pip install -r requirements.txt
 
 ## 📚 Recursos Adicionales
 
-### NLTK
-
-Es necesario descargar las listas de stopwords utilizadas por el proyecto:
-
-```python
-import nltk
-
-nltk.download("stopwords")
-```
-
-Idiomas soportados:
-
-* Español
-* Inglés
-* Francés
-
 ### SpaCy
 
 Si se desea utilizar lematización, deberán instalarse los modelos correspondientes:
