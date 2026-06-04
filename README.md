@@ -2,37 +2,37 @@
 
 ## 📖 Descripción
 
-Este proyecto desarrolla una herramienta en Python para el análisis automatizado de comentarios turísticos almacenados en archivos CSV.
+Este proyecto consiste en una herramienta desarrollada en Python para el análisis automatizado de comentarios turísticos almacenados en archivos CSV.
 
-La aplicación implementa técnicas de Procesamiento de Lenguaje Natural (PLN) para limpiar y analizar texto, determinar el sentimiento de los comentarios, identificar temas recurrentes mediante modelado de tópicos y generar visualizaciones interactivas que facilitan la interpretación de los resultados.
+La aplicación emplea técnicas de Procesamiento de Lenguaje Natural (PLN) para realizar la limpieza y normalización de texto, análisis de sentimientos, detección de tópicos y generación de visualizaciones interactivas. Todo el procesamiento se ejecuta localmente, sin depender de APIs o servicios externos.
 
-Todo el procesamiento se realiza localmente, sin depender de APIs externas.
+El objetivo es proporcionar una solución reproducible y fácil de utilizar para explorar grandes volúmenes de opiniones turísticas y obtener información relevante sobre la percepción de los usuarios.
 
 ---
 
-## 🎯 Objetivo
+## 🎯 Objetivos
 
-Desarrollar una solución autónoma capaz de:
-
-- Procesar comentarios turísticos en distintos idiomas.
-- Realizar limpieza y normalización de texto.
-- Aplicar técnicas de stemming y/o lematización.
-- Analizar sentimientos de los usuarios.
-- Identificar tópicos relevantes dentro de los comentarios.
-- Generar visualizaciones interactivas para facilitar la exploración de resultados.
-- Facilitar su ejecución desde la línea de comandos.
+* Procesar comentarios turísticos en múltiples idiomas.
+* Realizar tareas de limpieza y normalización de texto.
+* Aplicar técnicas opcionales de stemming y/o lematización.
+* Clasificar comentarios según su sentimiento.
+* Identificar los principales tópicos presentes en los comentarios.
+* Detectar patrones y anomalías lingüísticas mediante análisis de n-gramas.
+* Analizar la presencia de conceptos relacionados con precio, valor y costo.
+* Generar visualizaciones interactivas que faciliten la exploración de resultados.
+* Permitir la ejecución completa desde la línea de comandos.
 
 ---
 
 ## 🌎 Idiomas Soportados
 
-El sistema puede procesar comentarios en:
+El sistema puede procesar comentarios escritos en:
 
-- Español (`es`)
-- Inglés (`en`)
-- Francés (`fr`)
+* Español (`es`)
+* Inglés (`en`)
+* Francés (`fr`)
 
-Cada idioma utiliza sus correspondientes listas de stopwords para mejorar la calidad del procesamiento del texto.
+Para cada idioma se utilizan listas específicas de stopwords y recursos lingüísticos adaptados al procesamiento del texto.
 
 ---
 
@@ -40,50 +40,44 @@ Cada idioma utiliza sus correspondientes listas de stopwords para mejorar la cal
 
 ### Limpieza y preprocesamiento
 
-- Conversión de texto a minúsculas.
-- Eliminación de caracteres especiales.
-- Eliminación de stopwords.
-- Tokenización.
-- Normalización de texto.
-- Stemming (opcional).
-- Lematización (opcional).
+* Conversión de texto a minúsculas.
+* Eliminación de caracteres especiales.
+* Eliminación de stopwords.
+* Tokenización.
+* Normalización de texto.
+* Stemming (opcional).
+* Lematización (opcional).
 
 ### Análisis de sentimientos
 
-El sistema clasifica automáticamente los comentarios en dos categorías:
+Los comentarios son clasificados en dos categorías:
 
-- Positivo 😊
-- Negativo ☹️
+* Positivos 😊
+* Negativos ☹️
 
-Los comentarios neutrales son considerados comentarios positivos.
+Los comentarios neutrales son incorporados a la categoría positiva para efectos del análisis.
 
 ### Modelado de tópicos
 
-Detección automática de temas frecuentes presentes en los comentarios turísticos.
+Detección automática de temas recurrentes dentro de los comentarios mediante técnicas de modelado de tópicos.
 
 ### Visualización interactiva
 
-Generación de gráficas y reportes interactivos para explorar:
-
-- Distribución de sentimientos.
-- Frecuencia de palabras.
-- Nubes de palabras (dependiendo de la cantidad de comentarios).
-- Principales tópicos detectados.
-- Estadísticas descriptivas.
+Generación de gráficos y reportes interactivos que permiten explorar los resultados de manera dinámica.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-- Python 3.10
-- Pandas
-- NumPy
-- NLTK
-- SpaCy
-- Scikit-Learn
-- Gensim
-- Plotly
-- Matplotlib
+* Python 3.10
+* Pandas
+* NumPy
+* NLTK
+* SpaCy
+* Scikit-Learn
+* Gensim
+* Plotly
+* Matplotlib
 
 ---
 
@@ -93,7 +87,21 @@ Generación de gráficas y reportes interactivos para explorar:
 Proyecto_Final_Visualizacion/
 │
 ├── Archivos/
+    ├── comentarios.csv
+    ├── huatulco-T_unido.csv
+    ├── lapaz-T_unido.csv
+    ├── pv-T_unido.csv
+    ├── rm-T_unido.csv
+    └── rn-T_unido.csv
 ├── importaciones/
+    ├── Filtro_inicial.py
+    ├── Insolation_forest.py
+    ├── analisis_pv.py
+    ├── analisis_residuos.py
+    ├── analisis_sentimiento.py
+    ├── leer_archivo.py
+    ├── limpiar_palabras.py
+    └── topicos_sentimiento.py
 ├── graficas.py
 ├── main.py
 ├── requirements.txt
@@ -110,13 +118,13 @@ Proyecto_Final_Visualizacion/
 git clone https://github.com/Esmeralda1709/Proyecto_Final_Visualizacion.git
 ```
 
-### 2. Entrar al directorio
+### 2. Acceder al directorio
 
 ```bash
 cd Proyecto_Final_Visualizacion
 ```
 
-### 3. Crear entorno de Conda
+### 3. Crear el entorno virtual con Conda
 
 ```bash
 conda create -n pipeline_turismo python=3.10
@@ -136,27 +144,27 @@ pip install -r requirements.txt
 
 ---
 
-## 📚 Descarga de Recursos Adicionales
+## 📚 Recursos Adicionales
 
 ### NLTK
 
-Es necesario descargar las stopwords utilizadas por el sistema:
+Es necesario descargar las listas de stopwords utilizadas por el proyecto:
 
 ```python
 import nltk
 
-nltk.download('stopwords')
+nltk.download("stopwords")
 ```
 
-Las listas de palabras vacías utilizadas corresponden a:
+Idiomas soportados:
 
-- Español
-- Inglés
-- Francés
+* Español
+* Inglés
+* Francés
 
 ### SpaCy
 
-Si se desea utilizar lematización, es necesario instalar los modelos de lenguaje correspondientes.
+Si se desea utilizar lematización, deberán instalarse los modelos correspondientes:
 
 #### Español
 
@@ -176,67 +184,64 @@ python -m spacy download en_core_web_sm
 python -m spacy download fr_core_news_sm
 ```
 
-Los modelos cargados por el sistema son:
+Modelos utilizados:
 
 ```python
 spacy.load("es_core_news_sm")
 spacy.load("en_core_web_sm")
 spacy.load("fr_core_news_sm")
 ```
+
 ---
-
-
 
 ## ▶️ Ejecución
 
-El programa se ejecuta desde la línea de comandos mediante argumentos:
+La ejecución se realiza desde la línea de comandos mediante los siguientes parámetros:
 
 ```bash
 python main.py \
---ruta " [Lugar y nombre de la ubicacion del archivo que deseas analizar] " \
---columna " [Nombre de la columna de tu archivo que contiene los comentarios] " \
---idioma " [Idioma en el cual estan todos o la mayoria de los comentarios] "\
---titulo " [Titulo que le quieras dar al analisis] " \
---paleta " [Paleta de color que va a tener] " \
---lemma [True si lo quieres usar / False si no lo quieres usar]
---stem [True si lo quieres usar / False si no lo quieres usar]
+--ruta "[Ruta del archivo CSV]" \
+--columna "[Nombre de la columna que contiene los comentarios]" \
+--idioma "[es | en | fr]" \
+--titulo "[Título del análisis]" \
+--paleta "[Nombre de la paleta de colores]" \
+--lemma [True | False] \
+--stem [True | False]
 ```
 
-### Parámetros
+### Parámetros disponibles
 
-| Parámetro | Descripción |
-|------------|------------|
-| `--ruta` | Ruta al archivo CSV |
-| `--columna` | Nombre de la columna que contiene los comentarios |
-| `--idioma` | Idioma de los comentarios (`es`, `en`, `fr`) |
-| `--titulo` | Título utilizado en los reportes y visualizaciones |
-| `--paleta` | Paleta de colores para las gráficas |
-| `--lemma` | Activa o desactiva la lematización (`True` o `False`) |
-| `--stem` | Activa el stemming (`True` o `False`) |
-
----
+| Parámetro   | Descripción                                        |
+| ----------- | -------------------------------------------------- |
+| `--ruta`    | Ruta del archivo CSV a analizar                    |
+| `--columna` | Columna que contiene los comentarios               |
+| `--idioma`  | Idioma predominante de los comentarios             |
+| `--titulo`  | Título mostrado en los resultados                  |
+| `--paleta`  | Paleta de colores utilizada en las visualizaciones |
+| `--lemma`   | Activa o desactiva la lematización                 |
+| `--stem`    | Activa o desactiva el stemming                     |
 
 ### Ejemplos
 
-Sin stemming ni lematización:
+**Sin stemming ni lematización**
 
 ```bash
 python main.py --ruta "Archivos/rn-T_unido.csv" --columna "Comentario" --idioma "es" --titulo "Analisis" --paleta "okabe-ito"
 ```
 
-Con lematización:
+**Con lematización**
 
 ```bash
 python main.py --ruta "Archivos/rn-T_unido.csv" --columna "Comentario" --idioma "es" --titulo "Analisis" --paleta "okabe-ito" --lemma True
 ```
 
-Con stemming:
+**Con stemming**
 
 ```bash
 python main.py --ruta "Archivos/rn-T_unido.csv" --columna "Comentario" --idioma "es" --titulo "Analisis" --paleta "okabe-ito" --stem True
 ```
 
-Con lematización y stemming:
+**Con lematización y stemming**
 
 ```bash
 python main.py --ruta "Archivos/rn-T_unido.csv" --columna "Comentario" --idioma "es" --titulo "Analisis" --paleta "okabe-ito" --lemma True --stem True
@@ -246,55 +251,53 @@ python main.py --ruta "Archivos/rn-T_unido.csv" --columna "Comentario" --idioma 
 
 ## ⏱️ Tiempo de Procesamiento
 
-El tiempo de ejecución depende del tamaño del conjunto de datos.
+El tiempo de ejecución depende principalmente del tamaño del conjunto de datos y de los recursos disponibles en el equipo.
 
 Como referencia:
 
-- Archivos pequeños: 20-30 minutos.
-- Archivos medianos: 45 minutos a 1 hora.
-- Archivos grandes: más de 1 hora.
+* Archivos pequeños: 20 a 30 minutos.
+* Archivos medianos: 45 minutos a 1 hora.
+* Archivos grandes: más de 1 hora.
 
-El modelado de tópicos y el procesamiento lingüístico suelen ser las etapas más demandantes computacionalmente.
+Las etapas de modelado de tópicos y procesamiento lingüístico suelen representar la mayor parte del tiempo de ejecución.
 
 ---
 
-## 📊 Resultados
+## 📊 Resultados Generados
 
-Al finalizar el procesamiento, el sistema abrirá automáticamente una interfaz interactiva en el navegador.
+Al finalizar el procesamiento, el sistema abrirá automáticamente una interfaz interactiva en el navegador para la exploración de resultados.
 
-Desde ella será posible explorar:
+Entre los elementos generados se incluyen:
 
-- N-gramas de las anomalias de los comentarios.
-- Distribución de comentarios positivos y negativos.
-- Tópicos principales de los comentarios positivos y negativos.
-- Comentario representativo de esos tópicos
-- N-gramas de las anomalias de los comentarios positivos y negativos.
-- Grafica de la relación de comentarios con el concepto de Precio/Valor/Costo.
-- Top 5 de comentarios con mayor carga económica.
-
-
-Esto permite al usuario navegar e interpretar fácilmente los resultados obtenidos.
+* N-gramas asociados a anomalías detectadas en los comentarios.
+* Distribución de comentarios positivos y negativos.
+* Principales tópicos encontrados en comentarios positivos.
+* Principales tópicos encontrados en comentarios negativos.
+* Comentarios representativos para cada tópico identificado.
+* N-gramas asociados específicamente a comentarios positivos y negativos.
+* Análisis de la relación entre los comentarios y conceptos económicos como precio, valor y costo.
+* Top 5 de comentarios con mayor carga económica.
 
 ---
 
 > ⚠️ **Importante**
 >
-> El tiempo de procesamiento puede superar los 30 minutos para conjuntos de datos grandes, especialmente cuando se utilizan técnicas de modelado de tópicos, lematización o stemming.
+> El tiempo de procesamiento puede superar una hora cuando se analizan conjuntos de datos grandes o cuando se habilitan técnicas adicionales como lematización y stemming.
 >
-> Se recomienda no cerrar la terminal durante la ejecución del análisis.
+> Durante la ejecución se recomienda no cerrar la terminal ni interrumpir el proceso.
 
 ---
 
-## 👩‍💻 Autor
+## 👩‍💻 Autores
 
-**ANGEL RAFAEL LOPEZ HERNANDEZ**
-**JESSICA ALMENDRA CERVERA MARTINEZ**
-**ESMERALDA ABIGAIL RUIZ VAZQUEZ**
+* Angel Rafael López Hernández
+* Jessica Almendra Cervera Martínez
+* Esmeralda Abigail Ruiz Vázquez
 
-Proyecto desarrollado con fines académicos para la materia de Visualización y Análisis de Datos.
+Proyecto desarrollado con fines académicos para la materia de **Visualización y Análisis de Datos**.
 
 ---
 
 ## 📜 Licencia
 
-Este proyecto tiene fines educativos y académicos.
+Este proyecto fue desarrollado con fines educativos y académicos.
