@@ -34,12 +34,11 @@ def frecuencia_palabras(comentarios):
 
 
 def topicos_por_sentimiento(corpus, tipo, idioma="es", umbral=5):
-    # Ya no llamamos a sentimientos aquí, usamos el corpus que nos pasan
     print(f"\n--- Comentarios {tipo} ---")
     lista_resultados = []
     
     if len(corpus) >= umbral:
-        topicos = modelar_topicos(corpus) # Asumimos que modelar_topicos existe en tu archivo
+        topicos = modelar_topicos(corpus)
         for idx, palabras, comentario in topicos:
             print(f"Tópico {idx}: {', '.join(palabras)}")
             print(f"Comentario representativo: {comentario}\n")
