@@ -55,7 +55,7 @@ El sistema clasifica automáticamente los comentarios en dos categorías:
 - Positivo 😊
 - Negativo ☹️
 
-Los comentarios neutralesson considerados comentarios positivos.
+Los comentarios neutrales son considerados comentarios positivos.
 
 ### Modelado de tópicos
 
@@ -67,7 +67,7 @@ Generación de gráficas y reportes interactivos para explorar:
 
 - Distribución de sentimientos.
 - Frecuencia de palabras.
-- Nubes de palabras.
+- Nubes de palabras (dependiendo de la cantidad de comentarios).
 - Principales tópicos detectados.
 - Estadísticas descriptivas.
 
