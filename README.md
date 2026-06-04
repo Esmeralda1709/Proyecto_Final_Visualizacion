@@ -55,7 +55,7 @@ El sistema clasifica automáticamente los comentarios en dos categorías:
 - Positivo 😊
 - Negativo ☹️
 
-Los comentarios neutrales no son considerados dentro del análisis final.
+Los comentarios neutralesson considerados comentarios positivos.
 
 ### Modelado de tópicos
 
